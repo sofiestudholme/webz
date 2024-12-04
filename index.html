@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class = container>
+        <div class = section id = s1>
+            <div class = header>
+                <div><strong>Header Logo</strong></div>
+                <div id = header-babies>
+                    <div>Header link 1</div>
+                    <div>Header link 2</div>
+                    <div>Header link 3</div>
+                </div>
+            </div>
+            <div class = section id = more-stuff>
+                <div><div><strong>This is a website</strong></div><br>There is a sub heading here</div>
+            </div>
+
+        </div>
+        <div class = section id = s2>
+            <div class="section" id="info"><h1>Some random information</h1></div>
+            <div class="section" id="boxes" >
+                <div class = "box" ><img src="alpha.gif"></div>
+                <div class = "box" >box1</div>
+                <div class = "box" >box1</div>
+                <div class = "box" >box1</div>
+
+            </div>
+
+        </div>
+        <div class = section id = s3>
+            <div class = section id = quote>
+                <em>If life gives you lemons, don't give them to Betsy as they are sour. It would be best if there was a bit more text.</em>
+            </div>
+            <div class="section" id="sez" >
+                <div  id = text>
+                    - Sez Kaggenberger
+                </div>
+            </div>
+
+        </div>
+        <div class = section id = s4>
+            <div class = section id = bluebox>
+                <div id="writing" > <strong>Some Bold text</strong> <br> Some more text that is longer this time...</div>
+                <button>Click me xx</button>
+            </div>
+            <div class="section" id = cc>Copyright © Betsy Studholme Kaffenberger </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let x = 0
+        function buttonFunc() {
+            x = x + 1
+            if (x == 1) {
+                alert(`Please don't do that`)
+            } else if (x == 2) {
+                alert(`Seriously don't do that`)
+            } else {
+                pass 
+            }
+            
+
+        }
+        
+        const button = document.querySelector('button')
+        button.addEventListener('click', buttonFunc)
+
+    </script>
+</body>
+</html>
