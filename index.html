@@ -57,21 +57,37 @@
 
     <script>
         let x = 0
-        function buttonFunc() {
+        function buttonFunc(e) {
             x = x + 1
+            console.log(e)
             if (x == 1) {
                 alert(`Please don't do that`)
             } else if (x == 2) {
                 alert(`Seriously don't do that`)
+            } else if (x==3) {
+                button.style.cssText = "color: blue; background: white;";
             } else {
-                pass 
+                const div = document.querySelector("div")
+                div.style.color = "red"
+                div.style.fontSize = "xxx-large"
+                div.textContent = "OUCHIES"
+
+                const button2 = document.createElement("button")
+                button2.textContent = "I'm sorry :("
+                button2.fontSize = "small"
+                div.appendChild(button2)
+
+
             }
+            
+           
             
 
         }
         
         const button = document.querySelector('button')
-        button.addEventListener('click', buttonFunc)
+        button.addEventListener('click', buttonFunc (e))
+        button2.addEventListener('click', buttonFunc (e))
 
     </script>
 </body>
