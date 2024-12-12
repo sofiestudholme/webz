@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <h1>How many boxes? </h1><input type="text" id="num-boxes" ><br><br>
+    <div id = container-boxes></div>
+
+
+    <script>
+        let parent = document.querySelector('#container-boxes')
+        let input = document.querySelector('#num-boxes')
+        input.addEventListener('keypress', (e) => {
+            if (e.key == 'Enter') {
+                console.log(input.value)
+                num = Math.floor(Math.sqrt(input.value))
+                if (num > 10) {
+                    num = 10
+                    alert("Largest grid is 100 ")
+                }
+                makeGrid(num)
+            }
+        })
+
+        function makeGrid(num) {
+            while (parent.firstChild) {
+                parent.removeChild(parent.lastChild);
+            }
+
+            for (i = 0; i < num; i ++ ) {
+                node = document.createElement('div')
+                node.classList.add('parent-box')
+                // node.style.flexDirection = 'coli'
+                parent.appendChild(node)
+                for (j = 0; j < num; j ++) {
+                    row_node = document.createElement('div')
+                    row_node.classList.add('grid-box')
+                    node.appendChild(row_node)
+                    row_node.addEventListener('mouseover', (event) => {
+                        n = event.target
+                        n.classList.toggle('grid-box')
+                        n.classList.toggle('grid-box-blue')
+                    })
+
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

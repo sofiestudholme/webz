@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAPER SCISSORS ROCK</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Paper Scissors Rock</h1>
+
+    <div id = selection>
+        <div> Choose ONE:</div>
+        <div id="buttons">
+            <a ><button id = "paper">Paper</button></a>
+            <a ><button id = "scissors">Scissors</button></a>
+            <a ><button id = "rock">Rock</button></a>
+
+         
+        </div>
+        <div id = computer></div>
+        <button id = outcome></button>
+    </div>
+
+    <script>
+
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+        }
+        const selection = document.querySelector("#buttons")
+        selection.addEventListener('click', (event) => {
+            console.log("Clicked selecteion")
+            let target = event.target 
+            selection.querySelectorAll('button').forEach((node) => {
+                node.style.backgroundColor = "blue"
+            })
+            target.style.backgroundColor = 'lightblue'
+
+            let user = 0
+            selections = ['Paper', 'Rock', 'Scissors']
+            console.log(target.id)
+            if (target.id == "rock") {
+                user = 1
+            } else if (target.id == "scissors") {
+                user = 2
+            }
+
+            let computer = getRandomInt(3)
+            let computerPanel = document.querySelector('#computer')
+            computerPanel.textContent = "Computer choice: " + selections[computer]
+
+            let outcome = 'You won'
+            
+            beat = user - 1
+            if (beat == -1) {beat = 2}
+
+
+            if (computer == beat) {outcome = 'You lose'} 
+            else if (computer == user) {outcome = 'Draw'}
+
+            let outcomePanel= document.querySelector('#outcome')
+            outcomePanel.textContent = outcome
+        
+
+        })
+        
+    </script>
+    
+
+    
+</body>
+</html>

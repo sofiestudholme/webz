@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "styles.css">
-    <title>Document</title>
+    <title>FUN</title>
 </head>
 <body>
     <div class = container>
@@ -25,9 +25,9 @@
         <div class = section id = s2>
             <div class="section" id="info"><h1>Some random information</h1></div>
             <div class="section" id="boxes" >
-                <div class = "box" ><img src="alpha.gif"></div>
-                <div class = "box" ><img src = "dinosaur.png"></div>
-                <div class = "box" >box1</div>
+                <div class = "box" ><img src="media/alpha.gif" onclick="window.location.href='pages/boxes.html'"></div>
+                <div class = "box" ><img src = "media/dinosaur.png"></div>
+                <div class = "box" id = "rps" onclick="window.location.href='pages/rps.html'" ><img src = "media/rps.jpeg"></div>
                 <div class = "box" >box1</div>
 
             </div>
@@ -47,7 +47,7 @@
         <div class = section id = s4>
             <div class = section id = bluebox>
                 <div id="writing" > <strong>Some Bold text</strong> <br> Some more text that is longer this time...</div>
-                <button>Click me xx</button>
+                <button id="click-me">Click me xx</button>
             </div>
             <div class="section" id = cc>Copyright © Betsy Studholme Kaffenberger </div>
 
@@ -59,11 +59,13 @@
         let x = 0
         const div = document.querySelector("div")
         console.log(div.querySelector('#header-babies'))
+        const button2 = document.createElement("button")
 
         // console.log(div.childNodes[0])
 
         function buttonFunc() {
             x = x + 1
+
             if (x == 1) {
                 alert(`Please don't do that`)
             } else if (x == 2) {
@@ -77,7 +79,6 @@
                 div.style.fontSize = "xxx-large"
                 div.textContent = "OUCHIES"
 
-                const button2 = document.createElement("button")
                 button2.setAttribute('id', 'sorry-button')
                 button2.textContent = "I'm sorry :("
                 button2.fontSize = "small"
@@ -85,17 +86,17 @@
                 const b = document.querySelector('#sorry-button')
                 b.addEventListener('click', sorryButton)
 
-
-
             }
         }
         function sorryButton() {
-           div.textContent = "It's ok"
+           div.textContent = ""
+           div.removeChild(button2)
 
         }
         
         const button = document.querySelector('button')
-        button.addEventListener('click', sorryButton )
+        button.addEventListener('click', buttonFunc)
+        button2.addEventListener('click', sorryButton )
 
     </script>
 </body>

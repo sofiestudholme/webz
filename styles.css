@@ -140,7 +140,7 @@ em {color: #1f2937;
 }
 
 button {
-    flex: 0 1 100px;
+    flex: 0 1 10px;
     border: 2px solid white;
     border-radius: 10px;
     padding: 5px;
@@ -152,6 +152,9 @@ button {
     background-color: #3882f6;
 }
 
+#click-me {
+    flex: 0 1 100px;
+}
 
 
 #writing {
@@ -162,4 +165,68 @@ button {
 #cc {
     background-color: #1f2937;
     font-size: x-small;
+}
+
+
+
+/* Style for paper scissors rock */
+
+#selection {
+    display: flex;
+    background-color: #1f2937;
+    padding: 1%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons >  {margin: 0px;
+}
+
+
+/* Style boxes */
+#container-boxes {
+    margin: 20px;
+    width: 500px;
+    height: 500px;
+    /* border: solid #a90808; */
+    /* border-radius: 1s0px; */
+    color:#3882f6;
+    display:flex;
+    flex: 0 0 960;
+    /* background-color: #1f2937; */
+
+}
+
+.parent-box {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+
+}
+.grid-box {
+    flex: 1 1 0;
+    border: solid #3882f6;
+    border-radius: 10px;
+    flex-direction: column;
+    background-color: #1f2937;
+    margin:1px;
+
+}
+
+
+.grid-box-blue {
+    flex: 1 1 0;
+    border: solid #3882f6;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #f52505;
+    margin:0px;
+
+}
+
+#num-boxes {
+    color: #1f2937;
 }
