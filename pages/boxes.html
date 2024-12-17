@@ -27,6 +27,12 @@
             }
         })
 
+        function toggleBoxColor(event) {
+                n = event.target
+                n.classList.toggle('grid-box')
+                n.classList.toggle('grid-box-blue')
+            }
+
         function makeGrid(num) {
             while (parent.firstChild) {
                 parent.removeChild(parent.lastChild);
@@ -41,12 +47,7 @@
                     row_node = document.createElement('div')
                     row_node.classList.add('grid-box')
                     node.appendChild(row_node)
-                    row_node.addEventListener('mouseover', (event) => {
-                        n = event.target
-                        n.classList.toggle('grid-box')
-                        n.classList.toggle('grid-box-blue')
-                    })
-
+                    row_node.addEventListener('mouseover', toggleBoxColor)
                 }
             }
         }

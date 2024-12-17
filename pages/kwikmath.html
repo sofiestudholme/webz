@@ -4,45 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "../stylesdino.css">
-    <title>Dino Calc</title>
+    <title>Dino Calculator</title>
 </head>
 <body>
-    <div>Dino Calculator</div>
     <div>
         <div id = calculator>
-            <div id = screen>Calculator Screen</div>
-            <div id = operators>
-                <button class = "number-button" >+</button>
-                <button class = "number-button" >-</button>
-                <button class = "number-button" >x</button>
-                <button class = "number-button" >/</button>
-
-            </div>
+            <div id = screen><p id = input-text>DINOCALC <br>by Betsy</p></div>
+            <div id = operators></div>
             <div id = numbers></div>
         </div>
-        <div id = output-dinos>Output</div>
+        <div id = output-dinos></div>
 
     </div>
     
     <script>
+        let first = true
         let newButton = null
+        let div = null
+        let imgDino = null
         const numbersDisplay = document.querySelector('#numbers')
+        const operandsDisplay = document.querySelector('#operators')
+        const screenDisplay = document.querySelector('#input-text')
+        const ouputDisplay = document.querySelector('#output-dinos')
+        
+        function clearScreen() {
+            screenDisplay.textContent = ''
+        }
+
+        function calculateDinos() {
+            ouputDisplay.innerHTML = ''
+            var randomInt = Math.floor(Math.random() * 101);
+            for (i = 0; i < randomInt; i ++) {
+                imgDino = document.createElement('img')
+                imgDino.src = '../media/dinosaur.png'
+                imgDino.width = (Math.floor(Math.random() * 50))
+                ouputDisplay.appendChild(imgDino)
+            }
+              
+        }
+
+        function buttonPress(event) {
+            text = event.target.textContent
+            if (first) {
+                first = false
+                clearScreen()
+            } 
+            if (text == '=') {
+                calculateDinos()
+                first = true
+            } else {
+                screenDisplay.textContent = screenDisplay.textContent + text
+            }
+        }
+
+        let operands = ['+', '-', 'x', '/']
+        operands.forEach((operand) => {
+                newButton = document.createElement("button")
+                newButton.classList.add("number-button")
+                newButton.addEventListener('click', buttonPress)
+                newButton.textContent = operand
+                operandsDisplay.appendChild(newButton)
+            })
+
         for (i = 0; i < 12; i ++) {
             newButton = document.createElement("button")
             newButton.classList.add("number-button")
-            if (((9 - i) > -1) &  ((9 - i) < 10)) {
+            if (i < 10) {
                 newButton.textContent = 9 - i 
-            } else if ((9 - i) == -1) {
+            } else if (i == 10) {
                 newButton.textContent = '.'
-
-            } else if ((9 - i) == - 2) {
+                newButton.setAttribute('id', '.')
+            } else if (i == 11) {
                 newButton.textContent = '='
-                newButton.setAttribute('id','equals')
-            }
+                newButton.setAttribute('id','equals')}
+            newButton.addEventListener('click', buttonPress)
             numbersDisplay.appendChild(newButton)
-   
+          
         }
-        
     </script>
 
     
