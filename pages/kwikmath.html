@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "../stylesdino.css">
+    <title>Dino Calc</title>
+</head>
+<body>
+    <div>Dino Calculator</div>
+    <div>
+        <div id = calculator>
+            <div id = screen>Calculator Screen</div>
+            <div id = operators>
+                <button class = "number-button" >+</button>
+                <button class = "number-button" >-</button>
+                <button class = "number-button" >x</button>
+                <button class = "number-button" >/</button>
+
+            </div>
+            <div id = numbers></div>
+        </div>
+        <div id = output-dinos>Output</div>
+
+    </div>
+    
+    <script>
+        let newButton = null
+        const numbersDisplay = document.querySelector('#numbers')
+        for (i = 0; i < 12; i ++) {
+            newButton = document.createElement("button")
+            newButton.classList.add("number-button")
+            if (((9 - i) > -1) &  ((9 - i) < 10)) {
+                newButton.textContent = 9 - i 
+            } else if ((9 - i) == -1) {
+                newButton.textContent = '.'
+
+            } else if ((9 - i) == - 2) {
+                newButton.textContent = '='
+                newButton.setAttribute('id','equals')
+            }
+            numbersDisplay.appendChild(newButton)
+   
+        }
+        
+    </script>
+
+    
+</body>
+</html>

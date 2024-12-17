@@ -182,11 +182,10 @@ button {
     flex-direction: column;
 }
 
-#buttons >  {margin: 0px;
+#buttons >   {margin: 0px;
 }
 
 
-/* Style boxes */
 #container-boxes {
     margin: 20px;
     width: 500px;
@@ -208,19 +207,19 @@ button {
 }
 .grid-box {
     flex: 1 1 0;
-    border: solid #3882f6;
-    border-radius: 10px;
+    /* border: solid #3882f6; */
+    /* border-radius: 0px; */
     flex-direction: column;
     background-color: #1f2937;
-    margin:1px;
+    margin:0px;
 
 }
 
 
 .grid-box-blue {
     flex: 1 1 0;
-    border: solid #3882f6;
-    border-radius: 5px;
+    /* border: solid #3882f6; */
+    /* border-radius: 0px; */
     flex-direction: column;
     background-color: #f52505;
     margin:0px;
@@ -230,3 +229,5 @@ button {
 #num-boxes {
     color: #1f2937;
 }
+
+
