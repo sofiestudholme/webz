@@ -7,13 +7,71 @@
     <title>Dino Calculator</title>
 </head>
 <body>
-    <div>
-        <div id = calculator>
-            <div id = screen><p id = input-text>DINOCALC <br>by Betsy</p></div>
-            <div id = operators></div>
-            <div id = numbers></div>
+
+
+
+    <div id="alles">
+        <div id="top-row">
+            <div id = calculator>
+                <div id = screen><p id = input-text>DINOCALC <br>by Betsy</p></div>
+                <div id = operators></div>
+                <div id = numbers></div>
+            </div>
+            
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Dinosaurs</th>
+                        <th> </th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td id = s style="text-align: center"></td>
+                        <td > 35.6 </td>
+                    </tr>
+                    <tr>
+                        <td>Med</td>
+                        <td id = m style="text-align: center"></td>
+                        <td> 53.9 </td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td id = l style="text-align: center"></td>
+                        <td>78.0</td>
+                    </tr>
+                    <tr>
+                        <th>Dino Flock</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td id = sf style="text-align: center"></td>
+                        <td > 99.6 </td>
+                    </tr>
+                    <tr>
+                        <td>Med</td>
+                        <td id = mf style="text-align: center"></td>
+                        <td> 563.9 </td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td id = lf style="text-align: center"></td>
+                        <td>10004.0</td>
+                    </tr>
+                    <caption>
+                        <h1>Dino Key</h1>
+                        All values are approximate, consult DINOCALC for exact conversion 
+                    </caption>
+                    
+                </table>
+            </div>
         </div>
-        <div id = output-dinos></div>
+
+
+        <div id="results">
+            <h1>Results:</h1>
+            <div id = output-dinos></div>
+        </div>
 
     </div>
     
@@ -26,19 +84,31 @@
         const operandsDisplay = document.querySelector('#operators')
         const screenDisplay = document.querySelector('#input-text')
         const ouputDisplay = document.querySelector('#output-dinos')
-        
+        let operands = ['+', '-', 'x', '/']
+        let ex = null
+
         function clearScreen() {
             screenDisplay.textContent = ''
         }
 
+        function isValid(ex) {
+            return (ex.length != 0)
+        }
+
         function calculateDinos() {
             ouputDisplay.innerHTML = ''
-            var randomInt = Math.floor(Math.random() * 101);
-            for (i = 0; i < randomInt; i ++) {
-                imgDino = document.createElement('img')
-                imgDino.src = '../media/dinosaur.png'
-                imgDino.width = (Math.floor(Math.random() * 50))
-                ouputDisplay.appendChild(imgDino)
+            ouputDisplay.textContent = screenDisplay.textContent + ' = '
+            ex = screenDisplay.textContent
+            if (isValid(ex)) {
+                var randomInt = Math.floor(Math.random() * 101);
+                for (i = 0; i < randomInt; i ++) {
+                    imgDino = document.createElement('img')
+                    imgDino.src = '../media/dinosaur.png'
+                    imgDino.width = (Math.floor(Math.random() * 50))
+                    ouputDisplay.appendChild(imgDino)
+                }
+            } else {
+                ouputDisplay.textContent = "Can not calculate"
             }
               
         }
@@ -53,11 +123,16 @@
                 calculateDinos()
                 first = true
             } else {
-                screenDisplay.textContent = screenDisplay.textContent + text
+                if (operands.indexOf(text) !== -1) {
+                    screenDisplay.textContent = screenDisplay.textContent + ' ' + text + ' '
+                } else {
+                    screenDisplay.textContent = screenDisplay.textContent + text
+
+                }
             }
         }
 
-        let operands = ['+', '-', 'x', '/']
+        // populate calculator
         operands.forEach((operand) => {
                 newButton = document.createElement("button")
                 newButton.classList.add("number-button")
@@ -79,8 +154,40 @@
                 newButton.setAttribute('id','equals')}
             newButton.addEventListener('click', buttonPress)
             numbersDisplay.appendChild(newButton)
+
+
+     
           
         }
+
+        // for ()
+           // populate table 
+        ids = [['#s',10],['#m',30],['#l', 50]]
+        ids.forEach((point) => {
+            size = point[1]
+            idString = point[0]
+            console.log(idString)
+            node = document.querySelector(idString)
+            imgDino = document.createElement('img')
+            imgDino.src = '../media/dinosaur.png'
+            imgDino.width = size
+            node.appendChild(imgDino)
+        })
+
+        ids = [['#sf',10],['#mf',30],['#lf', 50]]
+        for (i =0; i < 5; i ++) {
+            ids.forEach((point) => {
+                idString = point[0]
+                size = point[1]
+                node = document.querySelector(idString)
+                imgDino = document.createElement('img')
+                imgDino.src = '../media/dinosaur.png'
+                imgDino.width = (Math.floor(Math.random() * size))
+                node.appendChild(imgDino)
+            })
+        }
+
+        
     </script>
 
     
