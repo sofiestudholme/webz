@@ -1,9 +1,44 @@
 /* Style for dino math */
 
 
+/* same on all browsers */
+@import "modern-normalize";
+
+
+/* overried some other defaults */
+:root {
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+  margin: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+
+h1 {
+    font-size: 2rem;
+}
+
+img {
+  display: inline;
+  max-inline-size: 100%;
+}
+
+
+
 * {
     /* border: 1px solid brown; */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 #calculator {
@@ -37,8 +72,6 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-
-    /* margin-bottom: -5px; */
 }
 
 #input-text, br {
@@ -88,7 +121,6 @@
 
 }
 
-
 #top-row {
     display: flex;
     flex-direction: row;
@@ -102,3 +134,4 @@ tr {
     text-align: left;
     height: 50px;
 }
+

@@ -1,6 +1,32 @@
+@import "modern-normalize";
+
+:root {
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+  margin: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+
 * {
     /* border: 1px solid brown; */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #f9faf8;
 
 }
@@ -55,7 +81,7 @@ body {
     justify-content: space-between;
 }
 
-img {max-width:100px; height:auto}
+/* img {max-width:100px; height:auto} */
 
 h1 {
     color: #1f2937;
@@ -73,16 +99,51 @@ h1 {
 }
 
 #boxes {
+    margin: 0px 10%;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+
+#boxes2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .box {
-    flex: 0 0 100px;
+    flex: 0 1 0;
     border: 3px solid #3882f6;
-    height: 100px;
-    margin: 20px;
+    width: 100%;
     margin-top: 0px;
+    margin-bottom: 0px;
     border-radius: 5px;
+    aspect-ratio: 1;
+    max-width: 150px;
+   
+}
+
+.gamebox {
+    /* flex: 1 1 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* margin: 0 5%; */
+    height: fit-content;
+    width:20%
+}
+
+.cap {
+    width: fit-content;
+    color: #1f2937;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    font-size: small;
+
 }
 
 #s3 {
@@ -231,4 +292,6 @@ button {
     color: #1f2937;
 }
 
-
+img {
+    width: 100%;
+}
