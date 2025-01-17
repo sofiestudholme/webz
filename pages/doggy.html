@@ -3,12 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "../stylesdog.css">
     <title>Document</title>
 </head>
 <body>
     <div>
-        <img src = "../media/wog.png">
-    </div>
+        <button id="add-dog">Add dog</button>
+        <form id="form" action="https://httpbin.org/post" method="post" class = invisible>
+            <div>
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+              </div>
+            
+              <div>
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="age">
+              </div>
+            
+              <div>
+                <label for="breed">Breed: </label>
+                <input type="text" name="breed" id="breed">
+              </div>
+            <button type="submit">Submit</button>
+        </form>
     
+    
+        <div id="dogspace">
+        </div>
+        <!-- <img src = "../media/wog.png"> -->
+    </div>
+    <script>
+        const dogSpace = document.querySelector('#dogspace')
+        const addDogButton = document.querySelector('#add-dog')
+        const form = document.querySelector("#form")
+        const dogLibrary = [];
+
+        function Dog(name, age, breed) {
+            this.name = name
+            this.age = age
+            this.breed = breed
+            this.getInfo = function () {
+                return (`Name is ${this.name} breed is ${this.breed}`)
+            }
+        }
+
+        function addDogToLibrary(name, age, breed) {
+            dog = new Dog(name, age, breed)
+            dogLibrary.push(dog)
+        }
+
+        function drawDogs() {
+            while (dogSpace.firstChild) {
+                dogSpace.removeChild(dogSpace.firstChild)
+            }
+            dogLibrary.forEach(function(item) {
+                node = document.createElement('p')
+                node.textContent = item.getInfo()
+                console.log(node.textContent)
+                dogSpace.appendChild(node)
+            })
+        }
+
+        addDogButton.addEventListener('click', (event) => {
+            form.classList.toggle('invisible')
+
+        })
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault()
+            const name = document.getElementById('name').value
+            const age = document.getElementById('age').value
+            const breed = document.getElementById('breed').value
+            addDogToLibrary(name,age,breed)
+            drawDogs()
+            form.classList.toggle('invisible')
+        })
+
+
+
+    </script>
 </body>
 </html>

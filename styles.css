@@ -1,4 +1,10 @@
-@import "modern-normalize";
+/* 
+######################################
+################ General #############
+######################################
+ */
+
+@import "modern-normalize.css";
 
 :root {
   line-height: 1.5;
@@ -25,9 +31,11 @@ img {
 
 
 * {
-    /* border: 1px solid brown; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #f9faf8;
+    /* color: #f9faf8; */
 
 }
 
@@ -45,6 +53,9 @@ body {
 
 }
 
+.invisible {
+    display: none;
+}
 
 .section {
     display: flex;
@@ -81,7 +92,6 @@ body {
     justify-content: space-between;
 }
 
-/* img {max-width:100px; height:auto} */
 
 h1 {
     color: #1f2937;
@@ -126,6 +136,10 @@ h1 {
    
 }
 
+.box:hover {
+    border: 3.5px solid #3882f6;
+}
+
 .gamebox {
     /* flex: 1 1 0; */
     display: flex;
@@ -167,7 +181,7 @@ h1 {
 #text {
     flex: 0 1 auto;
     color: #1f2937;
-    text-align: right; /* Aligns text inside the element */
+    text-align: right; 
     margin-left: auto;
 }
 
@@ -214,6 +228,10 @@ button {
     background-color: #3882f6;
 }
 
+button:hover {
+    background-color: #8eb0e5;
+}
+
 #click-me {
     flex: 0 1 100px;
 }
@@ -230,8 +248,11 @@ button {
 }
 
 
-
-/* Style for paper scissors rock */
+/* 
+##########################################
+### Style for paper scissors rock 
+##########################################
+*/
 
 #selection {
     display: flex;
@@ -252,13 +273,9 @@ button {
     margin: 20px;
     width: 500px;
     height: 500px;
-    /* border: solid #a90808; */
-    /* border-radius: 1s0px; */
     color:#3882f6;
     display:flex;
     flex: 0 0 960;
-    /* background-color: #1f2937; */
-
 }
 
 .parent-box {
@@ -267,10 +284,9 @@ button {
     flex-direction: column;
 
 }
+
 .grid-box {
     flex: 1 1 0;
-    /* border: solid #3882f6; */
-    /* border-radius: 0px; */
     flex-direction: column;
     background-color: #1f2937;
     margin:0px;
@@ -294,4 +310,28 @@ button {
 
 img {
     width: 100%;
+}
+
+
+/* 
+#####################################
+### Styles - naughts and crosses #####
+##################################### */
+
+
+#board-container {
+    background-color: #1f2937;
+
+}
+
+#board {
+    background-color: #1f2937;
+    display: flex;
+    width: 50%;
+    height: 50%;
+}
+
+.nc-box {
+    background-color: #3882f6;
+    border-radius: 1rem;
 }

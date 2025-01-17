@@ -22,47 +22,80 @@
         <button id = outcome></button>
     </div>
 
+
+    <h1>Naughts and crosses</h1>
+    <div id="board-container">
+        <div id = board>
+        </div>
+    </div>
+
     <script>
 
+
+// paper scissors rock 
+
         function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+            return Math.floor(Math.random() * max);
         }
+
+        function determineOutcome(computer, user) {
+            let outcome = 'You won'
+            beat = user - 1
+            if (beat == -1) {beat = 2}
+            if (computer == beat) {outcome = 'You lose'} 
+            else if (computer == user) {outcome = 'Draw'}
+            return outcome
+        }
+
+        const selections = ['Paper', 'Rock', 'Scissors']
+
+        function Player(choiceString, type) {
+            this.choiceString = choiceString
+            this.type = type
+            this.choiceInt = function () {
+                let user = 0
+                if (choiceString == "rock") {
+                    user = 1
+                } else if (choiceString == "scissors") {
+                    user = 2
+                }
+                return user
+            }
+
+        }
+
+
+
         const selection = document.querySelector("#buttons")
-        selection.addEventListener('click', (event) => {
+        selection.addEventListener('click', (event) => { 
             console.log("Clicked selecteion")
             let target = event.target 
+            user = new Player(target.id, "Player")
+            console.log(user.type)
             selection.querySelectorAll('button').forEach((node) => {
                 node.style.backgroundColor = "blue"
             })
             target.style.backgroundColor = 'lightblue'
 
-            let user = 0
-            selections = ['Paper', 'Rock', 'Scissors']
-            console.log(target.id)
-            if (target.id == "rock") {
-                user = 1
-            } else if (target.id == "scissors") {
-                user = 2
-            }
-
+            
             let computer = getRandomInt(3)
             let computerPanel = document.querySelector('#computer')
             computerPanel.textContent = "Computer choice: " + selections[computer]
 
-            let outcome = 'You won'
-            
-            beat = user - 1
-            if (beat == -1) {beat = 2}
-
-
-            if (computer == beat) {outcome = 'You lose'} 
-            else if (computer == user) {outcome = 'Draw'}
-
             let outcomePanel= document.querySelector('#outcome')
-            outcomePanel.textContent = outcome
-        
-
+            outcomePanel.textContent = determineOutcome(computer,user.choiceInt())
         })
+
+
+// naughts and crosses
+        const board = document.querySelector("#board")
+        for (i = 0; i < 3; i = i + 1) {
+            node = document.createElement('div')
+            node.classList.add('nc-box')
+            board.appendChild(node)
+            
+        }
+
         
     </script>
     

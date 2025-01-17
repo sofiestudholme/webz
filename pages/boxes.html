@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOXES</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../stylesboxes.css">
 </head>
 <body>
 
     <h1>How many boxes? </h1><input type="text" id="num-boxes" ><br><br>
-    <div id = container-boxes></div>
-
+    <div id = "container-boxes"></div>
 
     <script>
         let parent = document.querySelector('#container-boxes')
@@ -18,8 +17,8 @@
         input.addEventListener('keypress', (e) => {
             if (e.key == 'Enter') {
                 console.log(input.value)
-                num = input.value
-                if (input.value > 100) {
+                let num = input.value
+                if (num > 100) {
                     num = 100
                     alert("Largest grid is 100 ")
                 }
@@ -38,12 +37,14 @@
                 parent.removeChild(parent.lastChild);
             }
 
-            for (i = 0; i < num; i ++ ) {
+            for (let i = 0; i < num; i ++ ) {
+                console.log(num)
                 node = document.createElement('div')
                 node.classList.add('parent-box')
                 // node.style.flexDirection = 'coli'
                 parent.appendChild(node)
-                for (j = 0; j < num; j ++) {
+                console.log(parent)
+                for (let j = 0; j < num; j ++) {
                     row_node = document.createElement('div')
                     row_node.classList.add('grid-box')
                     node.appendChild(row_node)
