@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "../styles.css">
+    <title>Waether</title>
+</head>
+<body>
+    <h1>The temps:</h1>
+    <div></div>
+
+    <script>
+    const BOX = document.querySelector('div')
+    const KEY = 'd40c1eda2e6976c574f567f43b5a44c4'; 
+
+    function getUrl(city) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=imperial`;
+        return url
+    }
+
+    async function getWatherInfo(url) {
+        try {
+            const response = await fetch(url, {mode: 'cors'})
+            const data = await response.json();
+            ansC = ((data.main.temp - 32) * (5/9)).toFixed(1)
+            return ansC
+        } catch (error) {
+            console.log("there was an error")
+            console.log(error)
+        }
+        
+    }
+
+    async function displayWeather(city) {
+        try {
+            url = getUrl(city)
+            const temp = await getWatherInfo(url)
+            info = (`The weather in ${city} is: ${ansC}\u00B0C`)
+            textBox = document.createElement('h1')
+            textBox.textContent = info
+            BOX.appendChild(textBox)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // cities = Array([])
+    cities = ["Christchurch", "Frankfurt", "Berlin", "Singapore", "Dubai", "Auckland"]
+    cities.forEach(city => {
+        displayWeather(city)
+    });
+    
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

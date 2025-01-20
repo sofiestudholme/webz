@@ -31,11 +31,11 @@ img {
 
 
 * {
-    justify-content: center;
-    align-items: center;
+  
     text-align: center;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* color: #f9faf8; */
+    color: #f9faf8;
+
 
 }
 

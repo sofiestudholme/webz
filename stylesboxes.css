@@ -275,7 +275,7 @@
      height: 500px;
      color:#3882f6;
      display:flex;
-     flex: 0 0 960px;
+     /* flex: 0 0 960px; */
  }
  
  .parent-box {
